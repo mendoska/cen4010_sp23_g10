@@ -4,7 +4,9 @@ body {
     color: #f5f6f7;
 }
 p {font-size: 16px;}
+
 .margin {margin-bottom: 45px;}
+
 .bg-1 { 
     background-color: #0bd3d3;
     color: #ffffff;
@@ -23,23 +25,26 @@ p {font-size: 16px;}
 .small-logo{
     height: 30px;
     width: 30px;
+    margin-left:3px;
+    margin-right:3px;
 }
 
-.bioText{
-
-    border-left-style: solid;
+.bioBox{
+    border: #0bd3d3;
+    border-radius: 5px;
+    border-left-style: groove;
     padding-left: 5px;
     border-left-width: 4px;
     border-top-width: 4px;
-    border-top-style: solid;
+    border-top-style: groove;
     top: 10px;
     border-right-width: 4px;
-    border-right-style: solid;
+    border-right-style: groove;
     border-bottom-width: 4px;
-    border-bottom-style: solid;
+    border-bottom-style: groove;
     right: 5px;
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-  
 }
+
