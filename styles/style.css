@@ -14,8 +14,32 @@ p {font-size: 16px;}
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
+/*
 #headShot{
     width: 30%;
     height: auto;
+}
+*/
+.small-logo{
+    height: 30px;
+    width: 30px;
+}
+
+.bioText{
+
+    border-left-style: solid;
+    padding-left: 5px;
+    border-left-width: 4px;
+    border-top-width: 4px;
+    border-top-style: solid;
+    top: 10px;
+    border-right-width: 4px;
+    border-right-style: solid;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    right: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  
 }
