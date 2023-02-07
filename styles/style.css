@@ -1,0 +1,21 @@
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+}
+p {font-size: 16px;}
+.margin {margin-bottom: 45px;}
+.bg-1 { 
+    background-color: #0bd3d3;
+    color: #ffffff;
+}
+
+.container-fluid {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#headShot{
+    width: 30%;
+    height: auto;
+}
