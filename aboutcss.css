@@ -1,9 +1,16 @@
 body {
-    font: 20px Montserrat, sans-serif;
+    font: 20px;
     line-height: 1.8;
     color: #f5f6f7;
+    font-family: Montserrat;
+
 }
-p {font-size: 16px;}
+p {
+    font-size: 16px;
+    max-width: 1080px; 
+	margin: 0 auto !important; 
+	float: none !important; 
+}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
     background-color: #000066; /* Green */
