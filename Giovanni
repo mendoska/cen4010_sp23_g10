@@ -1,19 +1,19 @@
+<!DOCTYPE html>
 <html>
+	
   <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <titl>Development Team: Giovanni Smith </titl></title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="stylesheet" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale = 1">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         
         <h1>Development Team</h1>
         <h2>Giovanni Smith</h2>
         
-        <!--
-            MADE WITH <3 AND JAVASCRIPT
-        -->
+        
         
         <p>
             <em>Relevant coursework</em>
@@ -27,9 +27,7 @@
             
         </p>
         
-        <!--
-            WHAT IS BRACKETS?
-        -->
+        
         <p>
             <em>Skills</em>
             Computer Languages: C, C++, HTML
@@ -37,11 +35,7 @@
             Hardware: Electrical wiring, Soldering
            
         </p>
-        
-        <!--
-            GET STARTED WITH YOUR OWN FILES
-        -->
-        
+       
         
         <p>
             <em>Experience</em>
