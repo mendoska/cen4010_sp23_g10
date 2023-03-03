@@ -98,7 +98,11 @@ A second use case is with a woman who is stuck in her office building overnight 
 ## **Team:**
 
 **Scrum Master:** Diego Gama
+
 **Product Owner:** Liam Swank
+
 **Backend Lead:** Alexander Mendoza
+
 **Frontend Lead:** Jarod Crush
+
 **Development Team:** Giovanni Smith
