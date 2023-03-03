@@ -1,6 +1,6 @@
 # **Group 10 - Weather App**
 
-**Executive Summary** 
+## **Executive Summary** 
 
 Our website wishes to provide its users various information regarding the weather of the current day and every other day throughout the week. This information includes the predicting weather forecast such as rain and snow and the predicted high and low temperature of those days within a given city. While there is a myriad of other competitors such as weather.com and accuweather.com’s weather apps. Our website will be open source for anyone to access the source code and do with it however they please. Our product will also contain zero advertisements as this project is non-profit. With the help of Weatherwidget.io this website would not be possible.
 
