@@ -1,4 +1,4 @@
-**<font size="5">Group 10 - Weather App</font>**
+**<font size="10">Group 10 - Weather App</font>**
 
 **Executive Summary** 
 
