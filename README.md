@@ -1,4 +1,4 @@
-**#Group 10 - Weather App**
+**Group 10 - Weather App**
 
 **Executive Summary** 
 
