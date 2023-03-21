@@ -9,6 +9,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('./public'));
 
+//Mongodb connection 
+const MongoClient = require('mongodb').MongoClient;
+var config = require('./config'); 
+
+
 
 app.listen(5680); //start the server
 console.log('Server is running...');
