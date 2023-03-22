@@ -7,7 +7,7 @@ const glob = require("glob")
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static('./public'));
+app.use(express.static('./weather'));
 
 //Mongodb connection 
 const MongoClient = require('mongodb').MongoClient;
