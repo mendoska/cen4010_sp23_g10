@@ -9,10 +9,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('./weather'));
 
-//Mongodb connection 
+//Mongodb c
 const MongoClient = require('mongodb').MongoClient;
 var config = require('./config'); 
 
+//testing mongodb connection
+
+//ading mongodb
+//config file
+const uri = 'mongodb+srv://'+config.db.user+':'+config.db.pass+'@cluster0.6ctttto.mongodb.net/?retryWrites=true&w=majority';
+const client = new MongoClient(uri, {useNewUrlParser:true});
+
+
+//check if it connects to mongodb correctly
+client.connect((err)=>{
+  if (err)
+    console.log(err);
+  else
+    console.log("Connected Successfully");
+})
 
 
 app.listen(5680); //start the server
