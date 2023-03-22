@@ -14,29 +14,55 @@
   <form>
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="firstName" class="form-control" id="firstName" placeholder="First Name">
+      <input type="firstName" class="form-control" id="first_name" placeholder="First Name">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="lastName" class="form-control" id="lastName" placeholder="Last Name">
+      <input type="lastName" class="form-control" id="last_name" placeholder="Last Name">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Enter email">
+      <input type="email" class="form-control" id="email_address" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Zip Code</label>
-      <input type="zipCode" class="form-control" id="zipCode" placeholder="Enter Zipcode">
+      <input type="zipCode" class="form-control" id="zip_code" placeholder="Enter Zipcode">
     </div>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Agree to terms of use</label>
     </div>
   <!-- onclick="someFunction () saving to use for a javascript form that is needed to connect to server -->
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" onclick="sendForm()">Submit</button>
   </form>
 
+  <div id="mydiv"></div>
+<script>
+  function sendForm() {
+    var first_name_val = $("#first_name").val();
+    var last_name_val = $("#last_name").val();
+    var gpa_val = $("#email_address").val();
+    var enrolled_val = $("#zip_code").val(); 
+    $.ajax({
+      url: "http://localhost:5680/sign-up.html",
+      type: "post",
+      data: { 
+        first_name: first_name_val,
+        last_name: last_name_val,
+        email_address: email_address_val,
+        zip_code: zip_code_val
+      },
+      success: function(response) {
+        $("#mydiv").text(response.message);
+      },
+      error: function(xhr) {
+        $("#mydiv").text('error: ' + xhr);
+      }
+    });
+  }
+  
+</script>
 
 
 </body>
