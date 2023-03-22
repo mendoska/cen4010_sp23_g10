@@ -11,6 +11,8 @@
 </head>
 <body>
 
+
+  <!-- bootstrap -->
   <form>
     <div class="form-group">
       <label for="firstName">First Name</label>
@@ -34,16 +36,35 @@
       <label class="form-check-label" for="exampleCheck1">Agree to terms of use</label>
     </div>
   <!-- onclick="someFunction () saving to use for a javascript form that is needed to connect to server -->
-    <button type="submit" class="btn btn-primary" onclick="sendForm()">Submit</button>
-  </form>
+    
+  </form> 
+
+  <!-- <label for="name">First Name:</label>
+  <input type="text" id="first_name" name="first_name"><br><br>
+
+  <label for="name">Last Name:</label>
+  <input type="text" id="last_name" name="last_name"><br><br>
+ 
+
+  <label for="name">Email Address:</label>
+  <input type="email" id="email_address" name="email"><br><br>
+
+  <label for="name">Zip Code:</label>
+  <input type="text" id="zip_code" name="zipCode"><br><br> -->
+
+
+  <button type="submit" class="btn btn-primary" onclick="sendForm()">Submit</button>
+
+
+
 
   <div id="mydiv"></div>
 <script>
   function sendForm() {
     var first_name_val = $("#first_name").val();
     var last_name_val = $("#last_name").val();
-    var gpa_val = $("#email_address").val();
-    var enrolled_val = $("#zip_code").val(); 
+    var email_address_val = $("#email_address").val();
+    var zip_code_val = $("#zip_code").val(); 
     $.ajax({
       url: "http://localhost:5680/sign-up.html",
       type: "post",
