@@ -1,0 +1,20 @@
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: white;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+p {
+    text-align: center;
+}

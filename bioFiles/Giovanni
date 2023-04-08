@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <titl>Development Team: Giovanni Smith </titl></title>
+        <meta name="viewport" content="width=device-width, initial-scale = 1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <h1>Development Team</h1>
+        <h2>Giovanni Smith</h2>
+        
+        
+        
+        <p>
+            <em>Relevant coursework</em>
+            -Discrete Mathematics
+            -Circuits
+            -Data structures
+            -Introduction to Logic Design
+            -Introduction to Computer Programming in C
+            -Foundations of Computer Science (C++ format)
+            -Intro to Micro-processors(Assembly language and C++)
+            
+        </p>
+        
+        
+        <p>
+            <em>Skills</em>
+            Computer Languages: C, C++, HTML
+            Software: Solidworks, Microsoft Office, Visual Studios
+            Hardware: Electrical wiring, Soldering
+           
+        </p>
+       
+        
+        <p>
+            <em>Experience</em>
+            Server- P.F. Changs, Boca Raton, FL							September 2022 – Present
+            	Provide exceptional customer service 
+            	Make suggestions based on customer tastes
+            	Operate registers and keep track of payments received by customers
+            	Take and serve food/drinks to customers 
+
+            Mechanical Engineering Intern - Innovative Professional Solutions Inc. (IPS), Naval Surface Warfare Center, Panama City Division, (NAVSEA)							May 2018 – August 2019
+            SLQ-48 Mine Neutralization System (MNS)
+              	Worked with developing procedures for the Valve Packages Local Repair Procedures
+	              Provided support where it was needed during vibrational and operational testing
+	              Constructed, deconstructed, and refurnished parts of the mine neutralization system for testing.
+	              Traveled to Jasper, Alabama to meet with individuals who specialized in rotor rewinds and laminations 
+	              Modeled parts, drawings, and assembled models through the SolidWorks program which was then used in the Mine Neutralization System (MNS)
+            IT Technical Support and Case Manger – Kanner and Pintaluga Incident Attorneys	March 2021 – June 2022
+              	Worked on a project with the company Templafy to make a standardized letterhead
+             	  Worked with Microsoft to transfer the mail team to Outlook
+	              Experience in operating Cisco Call Management and Cisco Unity system
+	              Desktop assembly 
+	              Trouble shoot problems with teammates when working on a company wide issue (Program update for PSI safe, a file organizer used by attorneys and case managers)
+            Cashier- CVS Health								September 2019 – November 2020
+	              Deliver exceptional customer service 
+	              Replenish and recover sales floor
+              	Knowledgeable in inventory management
+              	Knowledgeable on the register
+	              Reach sales goals of 5 CarePasses a week
+             Key Holder- GameStop							November 2020 – March 2021
+               	Keep accurate records of balances in the safe and registers    
+	              Uphold sales numbers and weekly goals of Pro cards (12 weekly) and items per transaction (3 item avg), and warranty sales  (60% avg)
+              	Open and close store for business
+	              Service 60 or more customers a shift
+
+
+        
+    </body>
+
+</html>
