@@ -3,11 +3,12 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const glob = require("glob")
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static('./weather'));
+//needed for local testing index.html 
+app.use(express.static('./'));
 
 //Mongodb c
 const MongoClient = require('mongodb').MongoClient;
@@ -29,7 +30,7 @@ client.connect((err)=>{
     console.log("Connected Successfully");
 })
 
-app.post('/sign-up.html', async function(req, res) {
+app.post('weather/sign-up.html', async function(req, res) {
     var record_id = new Date().getTime();  
   
     //creating object to send to mongo  
