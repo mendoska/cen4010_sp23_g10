@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 //needed for local testing index.html 
 app.use(express.static('./'));
+//needed to for rendering of weather folder
 app.use(express.static('./weather'));
 
 //Mongodb c

@@ -3,8 +3,12 @@ body {
     line-height: 1.8;
     color: #f5f6f7;
     font-family: Montserrat;
-
 }
+
+h3{
+    color:black;
+}
+
 p {
     font-size: 16px;
     max-width: 1080px;
@@ -12,6 +16,21 @@ p {
 	margin: 0 auto !important; 
 	float: none !important; 
 }
+
+
+/*https://www.makeuseof.com/css-background-gradients/?newsletter_popup=1#premium-dark*/
+.signup-page{
+background-image: linear-gradient(to right, #434343 0%, black 100%);
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-page p {
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:14px;
+}
+
+
 .weather1 {
     margin: 0 auto;
 }
@@ -53,6 +72,7 @@ p {
     border: 1px solid #ccc;
   }
 
+
   label {
     display: block;
     margin-bottom: 5px;
@@ -67,7 +87,7 @@ p {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color:  white; 
   }
 
   .form-control {
@@ -82,4 +102,9 @@ p {
     margin-bottom: 5px;
     font-weight: bold;
     color:black;
+  }
+
+  .form-title{
+    text-align: center;
+    color:white;
   }

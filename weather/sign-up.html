@@ -9,14 +9,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel = "stylesheet" href = "weatherapp.css">
-</head>
-<body>
 
+<!-- adding dummy home link, will probably will replace with icon -->
+<!-- <h3> <a href = "/index.html">HOME </h3></a> -->
+
+<nav class ="navbar navbar-default">
+  <div class="nav-style">
+      <div class="navbar-header">
+          <a class="navbar-brand" href ="#">Weather App</a>
+      </div>
+  <ul class = "nav navbar-nav">
+      <li> <a href="/">Home</a></li>
+      <li><a href="/sign-up.html">Sign Up</a></li>
+      <li><a href ="#">About</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+</head>
+
+<body class ="signup-page">
+
+  <h2 class = "form-title">Fill out the form below to sign up for email notifications</h2>
 
   <!-- bootstrap -->
   
   <div class = "form-container">
-    <form>
+    <form class = "form-styling">
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="firstName" class="form-control" id="first_name" placeholder="First Name">
@@ -37,6 +57,7 @@
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Agree to terms of use</label>
+        <p> <a href ="#" onclick = "openPopup(); return false;">Terms of use</a></p>
       </div>
     </form> 
     <button type="submit" class="btn btn-primary" onclick="sendForm()">Submit</button>
@@ -50,6 +71,50 @@
 
   <div id="mydiv"></div>
 <script>
+
+function openPopup(){
+  //pop up window dimensions
+  var width = 900;
+  var height = 600;
+
+  //calculating center position of the popup window
+  var left = (screen.width/2) - (width/2);
+  var top = (screen.height/2) - (height/2);
+  //pop up poperties
+  var popup = window.open('', 'popup', 'width='+width+',height='+height+',left='+left+',top='+top+',location=no,toolbar=no,menubar=no,status=no,resizable=no,scrollbars=no');
+
+  popup.document.write('Terms of Use for Email Notifications <br><br>Sign Up Form:');
+  popup.document.write('<br> <br>');
+  popup.document.write('By using this email notifications sign up form, you agree to the following terms and conditions:');
+  popup.document.write('<br> <br>');
+  popup.document.write ('1. You agree to provide accurate and complete information when signing up for email notifications.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('2. You agree to receive email notifications from us regarding the topic or topics that you have selected.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('3. You understand that you may unsubscribe from these email notifications at any time by clicking the unsubscribe link provided in each email.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('4. You agree to use the email notifications sign up form only for lawful purposes and in a manner that does not infringe the rights of, or restrict or inhibit the use and enjoyment of, this website by any third party.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('5. You agree to indemnify and hold us harmless from any claims, damages, liabilities, costs, or expenses (including without limitation, reasonable attorney\'s fees and expenses\) arising out of or related to your use of the email notifications sign up form.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('6. We reserve the right to modify or discontinue the email notifications sign up form at any time without prior notice.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('7. We may terminate your access to the email notifications sign up form at any time for any reason.')
+  popup.document.write('<br> <br>');
+  popup.document.write ('8. These terms of use shall be governed by and construed in accordance with the laws of Goofy Town. Any disputes arising under or in connection with these terms of use shall be subject to the exclusive jurisdiction of the courts of Goofy Town')
+  popup.document.write('<br> <br>');
+  popup.document.write ('By submitting your email address and clicking the "Sign Up" button, you acknowledge that you have read, understood, and agreed to these terms of use.')
+
+
+  //default function to close popup window
+  function closePopup(){
+    popup.close();
+  }
+
+}
+
+
+
   function sendForm() {
     var first_name_val = $("#first_name").val();
     var last_name_val = $("#last_name").val();
