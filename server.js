@@ -30,6 +30,15 @@ client.connect((err)=>{
     console.log("Connected Successfully");
 })
 
+
+app.get('/weather-api/', function (req,res){
+  console.log ("connected to backend successfully");
+  
+})
+
+
+
+
 app.post('weather/sign-up.html', async function(req, res) {
     var record_id = new Date().getTime();  
   
