@@ -24,9 +24,12 @@
           <a class="navbar-brand" href ="#">Weather App</a>
       </div>
   <ul class = "nav navbar-nav">
-      <li> <a href="./">Home</a></li>
+      <!-- for local depolyment -->
+      <!-- <li> <a href="/">Home</a></li> -->
       <!-- for live deployment -->
-      <li><a href="weather/sign-up.html">Sign Up</a></li>
+      <li> <a href="https://mendoska.github.io/cen4010_sp23_g10/">Home</a></li>
+      <!-- for live deployment -->
+      <li><a href="https://mendoska.github.io/cen4010_sp23_g10//weather/sign-up.html">Sign Up</a></li>
       <!-- for local depolyment -->
       <!-- <li><a href="/sign-up.html">Sign Up</a></li> -->
       <li><a href ="#">About</a></li>
@@ -86,7 +89,10 @@ function sendForm() {
       var email_address_val = $("#email_address").val();
       var zip_code_val = $("#zip_code").val(); 
       $.ajax({
-        url: "http://localhost:5680/sign-up",
+        //local deployment
+        // url: "http://localhost:5680/sign-up",
+        //live deployment
+        url:"https://mendoska.github.io/cen4010_sp23_g10/weather/sign-up.html",
         type: "post",
         data: { 
           first_name: first_name_val,
