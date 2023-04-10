@@ -12,8 +12,15 @@ p {
 	margin: 0 auto !important; 
 	float: none !important; 
 }
+table th {
+  text-align: center !important;
+}
 .weather1 {
     margin: 0 auto;
+}
+.table {
+    margin-left: auto;
+    margin-right: auto;
 }
 .margin {margin-bottom: 45px;}
 .bg-1 { 
@@ -23,6 +30,8 @@ p {
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
 }
 .bg-3 { 
     background-color: #ffffff; /* White */
