@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 //needed for local testing index.html 
 app.use(express.static('./'));
+//needed to for rendering of weather folder
+app.use(express.static('./weather'));
 
 //Mongodb c
 const MongoClient = require('mongodb').MongoClient;
@@ -37,9 +39,7 @@ app.get('/weather-api/', function (req,res){
 })
 
 
-
-
-app.post('weather/sign-up.html', async function(req, res) {
+app.post('/sign-up', async function(req, res) {
     var record_id = new Date().getTime();  
   
     //creating object to send to mongo  

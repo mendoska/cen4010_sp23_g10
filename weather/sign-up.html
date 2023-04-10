@@ -5,84 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
 
+
+<!-- bootstrap & ajax -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<!-- custom cs and js files in weather -->
+<link rel = "stylesheet" href = "weatherapp.css">
+<script src = "app.js"></script> 
+
+
+  <!-- navbar -->
+<nav class ="navbar navbar-default">
+  <div class="nav-style">
+      <div class="navbar-header">
+          <a class="navbar-brand" href ="#">Weather App</a>
+      </div>
+  <ul class = "nav navbar-nav">
+      <!-- for local depolyment -->
+      <!-- <li> <a href="/">Home</a></li> -->
+      <!-- for live deployment -->
+      <li> <a href="https://mendoska.github.io/cen4010_sp23_g10/">Home</a></li>
+      <!-- for live deployment -->
+      <li><a href="https://mendoska.github.io/cen4010_sp23_g10//weather/sign-up.html">Sign Up</a></li>
+      <!-- for local depolyment -->
+      <!-- <li><a href="/sign-up.html">Sign Up</a></li> -->
+      <li><a href ="#">About</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+
+</head>
+
+<body class ="signup-page">
+
+  <h2 class = "form-title">Fill out the form below to sign up for email notifications</h2>
 
   <!-- bootstrap -->
-  <form>
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="firstName" class="form-control" id="first_name" placeholder="First Name">
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="lastName" class="form-control" id="last_name" placeholder="Last Name">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="email_address" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Zip Code</label>
-      <input type="zipCode" class="form-control" id="zip_code" placeholder="Enter Zipcode">
-    </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Agree to terms of use</label>
-    </div>
-  <!-- onclick="someFunction () saving to use for a javascript form that is needed to connect to server -->
-    
-  </form> 
-
-  <!-- <label for="name">First Name:</label>
-  <input type="text" id="first_name" name="first_name"><br><br>
-
-  <label for="name">Last Name:</label>
-  <input type="text" id="last_name" name="last_name"><br><br>
- 
-
-  <label for="name">Email Address:</label>
-  <input type="email" id="email_address" name="email"><br><br>
-
-  <label for="name">Zip Code:</label>
-  <input type="text" id="zip_code" name="zipCode"><br><br> -->
-
-
-  <button type="submit" class="btn btn-primary" onclick="sendForm()">Submit</button>
-
-
-
-
-  <div id="mydiv"></div>
-<script>
-  function sendForm() {
-    var first_name_val = $("#first_name").val();
-    var last_name_val = $("#last_name").val();
-    var email_address_val = $("#email_address").val();
-    var zip_code_val = $("#zip_code").val(); 
-    $.ajax({
-      url: "http://localhost:5680/weather/sign-up.html",
-      type: "post",
-      data: { 
-        first_name: first_name_val,
-        last_name: last_name_val,
-        email_address: email_address_val,
-        zip_code: zip_code_val
-      },
-      success: function(response) {
-        $("#mydiv").text(response.message);
-      },
-      error: function(xhr) {
-        $("#mydiv").text('error: ' + xhr);
-      }
-    });
-  }
   
+  <div class = "form-container">
+    <form class = "form-styling">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="firstName" class="form-control" id="first_name" placeholder="First Name">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="lastName" class="form-control" id="last_name" placeholder="Last Name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email_address" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Zip Code</label>
+        <input type="zipCode" class="form-control" id="zip_code" placeholder="Enter Zipcode">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Agree to terms of use</label>
+        <p> <a href ="#" onclick = "openPopup(); return false;">Terms of use</a></p>
+      </div>
+    </form> 
+    <button type="submit" class="btn btn-primary" onclick="sendForm()">Submit</button>
+
+</div>
+
+
+
+
+<div id="signup-status"></div>
+<script>
+
+  
+function sendForm() {
+      var first_name_val = $("#first_name").val();
+      var last_name_val = $("#last_name").val();
+      var email_address_val = $("#email_address").val();
+      var zip_code_val = $("#zip_code").val(); 
+      $.ajax({
+        //local deployment
+        // url: "http://localhost:5680/sign-up",
+        //live deployment
+        url:"https://mendoska.github.io/cen4010_sp23_g10/weather/sign-up.html",
+        type: "post",
+        data: { 
+          first_name: first_name_val,
+          last_name: last_name_val,
+          email_address: email_address_val,
+          zip_code: zip_code_val
+        },
+        success: function(response) {
+          $("#signup-status").text(response.message);
+          $("#signup-status").append("Successfully subscribed to mailing list");
+        },
+        error: function(xhr) {
+          $("#signup-status").text('error: ' + xhr);
+          $("#signup-status").append("Error signing up");
+        }
+      });
+    }
 </script>
 
 

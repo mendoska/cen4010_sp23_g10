@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+# cen4010_fa21_g10
+Created branch to work on seperate landing page.
+To be merged to main repo.
+=======
 # **Group 10 - Weather App**
 
 ## **Executive Summary** 
@@ -106,3 +111,4 @@ A second use case is with a woman who is stuck in her office building overnight 
 **Frontend Lead:** Jarod Crush
 
 **Development Team:** Giovanni Smith
+>>>>>>> liam-branch
