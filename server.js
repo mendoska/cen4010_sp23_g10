@@ -83,5 +83,10 @@ app.post('/sign-up', async function(req, res) {
 
 
 
-app.listen(5680); //start the server
+//changing ports to work with Heroku
+
+
+port = process.env.PORT || 5678;
+var listener = app.listen(port);
+//app.listen(5678); //start the server
 console.log('Server is running...');
