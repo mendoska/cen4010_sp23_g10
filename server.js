@@ -7,7 +7,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 //need for public
+app.use(express.static('./'));
 app.use(express.static('./public'));
+
+
+
+
 
 //Mongodb connection
 const MongoClient = require('mongodb').MongoClient;
