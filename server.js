@@ -15,7 +15,8 @@ app.use(express.static('./public'));
 
 //Mongodb connection
 const MongoClient = require('mongodb').MongoClient;
-var config = require('./scripts/config'); 
+var config = require('scripts/config.js'); 
+
 
 //testing mongodb connection
 
