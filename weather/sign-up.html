@@ -25,13 +25,13 @@
       </div>
   <ul class = "nav navbar-nav">
       <!-- for local depolyment -->
-      <!-- <li> <a href="/">Home</a></li> -->
+      <li> <a href="/">Home</a></li>
       <!-- for live deployment -->
-      <li> <a href="https://mendoska.github.io/cen4010_sp23_g10/">Home</a></li>
+      <!-- <li> <a href="https://mendoska.github.io/cen4010_sp23_g10/">Home</a></li> -->
       <!-- for live deployment -->
-      <li><a href="https://mendoska.github.io/cen4010_sp23_g10//weather/sign-up.html">Sign Up</a></li>
+      <!-- <li><a href="https://mendoska.github.io/cen4010_sp23_g10//weather/sign-up.html">Sign Up</a></li> -->
       <!-- for local depolyment -->
-      <!-- <li><a href="/sign-up.html">Sign Up</a></li> -->
+      <li><a href="/sign-up.html">Sign Up</a></li>
       <li><a href ="#">About</a></li>
 
     </ul>
@@ -90,9 +90,9 @@ function sendForm() {
       var zip_code_val = $("#zip_code").val(); 
       $.ajax({
         //local deployment
-        // url: "http://localhost:5680/sign-up",
+        url: "http://localhost:5680/sign-up",
         //live deployment
-        url:"https://mendoska.github.io/cen4010_sp23_g10/weather/sign-up.html",
+        // url:"https://mendoska.github.io/cen4010_sp23_g10/weather/sign-up.html",
         type: "post",
         data: { 
           first_name: first_name_val,
