@@ -90,10 +90,8 @@ function sendForm() {
       var email_address_val = $("#email_address").val();
       var zip_code_val = $("#zip_code").val(); 
       $.ajax({
-        //local deployment
-        url: "http://localhost:5680/sign-up",
-        //live deployment
-        // url:"https://mendoska.github.io/cen4010_sp23_g10/weather/sign-up.html",
+        //does not matter if live or not.
+        url: "/sign-up",
         type: "post",
         data: { 
           first_name: first_name_val,

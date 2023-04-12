@@ -6,7 +6,10 @@ config.server = {};
 config.db = {};
 
 //server vars
-config.server.port = 5680;
+
+port = process.env.PORT || 5678;
+config.server.port = port;
+
 
 //MongoDB Creds
 config.db.host = 'cluster0.dtxnnqa.mongodb.net/';
