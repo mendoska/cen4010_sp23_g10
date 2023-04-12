@@ -2,19 +2,16 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
-const fs = require('fs');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-//needed for local testing index.html 
-app.use(express.static('./'));
-//needed to for rendering of weather folder
-app.use(express.static('./weather'));
+//need for public
+app.use(express.static('./public'));
 
-//Mongodb c
+//Mongodb connection
 const MongoClient = require('mongodb').MongoClient;
-var config = require('./config'); 
+var config = require('./scripts/config'); 
 
 //testing mongodb connection
 
