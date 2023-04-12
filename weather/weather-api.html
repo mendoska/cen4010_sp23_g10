@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Visual Crossing Weather</title>
-
-    
-</head>
-<body>
-    <p> weather</p>
-    <div id="mydiv"></div>
-
-<script type ="text/javascript" src ="./apiconfig.js"></script>
-
-<script>
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://visual-crossing-weather.p.rapidapi.com/history?startDateTime=2019-01-01T00%3A00%3A00&aggregateHours=24&location=Washington%2CDC%2CUSA&endDateTime=2019-01-03T00%3A00%3A00&unitGroup=us&dayStartTime=8%3A00%3A00&contentType=csv&dayEndTime=17%3A00%3A00&shortColumnNames=0",
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": key,
-		"X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com"
-	}
-};
-
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
-
-</script>
-
-</body>
-</html>
+<html>
+    <head>
+        <title>Weather App</title>
+        <link rel="stylesheet" href="weatherapp.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src = "weatherAPI.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#">Group 10's Website</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="../index.html">Home Page</a></li>
+                    <li><a href="index.html">Weather App</a></li>
+                    <li><a href="../public/sign-up.html">Registration</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class = "container-fluid bg-3 text-center">
+            <h1>Welcome</h1>
+            <h2 id="weather-loc"></h2>
+            <h3>Hourly</h3>
+            <div id="weather-tableH"></div>
+            
+            <h3>Daily</h3>
+            <div id="weather-tableD"></div>
+        </div>
+    </body>
+</html

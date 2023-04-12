@@ -17,22 +17,12 @@ p {
 	float: none !important; 
 }
 
-
-/*https://www.makeuseof.com/css-background-gradients/?newsletter_popup=1#premium-dark*/
-.signup-page{
-background-image: linear-gradient(to right, #434343 0%, black 100%);
-font-family: Arial, Helvetica, sans-serif;
-}
-
-.signup-page p {
-    color:black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:14px;
-}
-
-
 .weather1 {
     margin: 0 auto;
+}
+.table {
+    margin-left: auto;
+    margin-right: auto;
 }
 .margin {margin-bottom: 45px;}
 .bg-1 { 
@@ -42,6 +32,8 @@ font-family: Arial, Helvetica, sans-serif;
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
 }
 .bg-3 { 
     background-color: #ffffff; /* White */
@@ -55,67 +47,3 @@ font-family: Arial, Helvetica, sans-serif;
     padding-top: 70px;
     padding-bottom: 70px;
 }
-
- .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-
-/* 
-*************************
-*************************
-Styling for sign up form 
-*************************
-*************************
-*/
-  .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    margin-top:50px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color:  white; 
-  }
-
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color:black;
-  }
-
-  .form-title{
-    text-align: center;
-    color:white;
-  }
-
-  #signup-status{
-    text-align:center;
-    font-size: 16px;
-  }
