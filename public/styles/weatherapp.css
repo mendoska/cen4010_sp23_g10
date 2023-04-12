@@ -23,6 +23,7 @@ p {
 .table {
     margin-left: auto;
     margin-right: auto;
+    text-align: center !important;
 }
 .margin {margin-bottom: 45px;}
 .bg-1 { 
