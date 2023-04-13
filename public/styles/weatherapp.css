@@ -20,6 +20,9 @@ p {
 .weather1 {
     margin: 0 auto;
 }
+table th {
+    text-align: center !important;
+}
 .table {
     margin-left: auto;
     margin-right: auto;
