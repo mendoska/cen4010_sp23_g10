@@ -20,7 +20,7 @@
 
 //     // add headers
 //     let headers = ["Date", "Conditions", "Temperature", "Max", "Min",
-//                    "Precipitation %","Wind Speed","Humidity","Pressure"];
+//                    "Precipitation %","Wind Speed (mph)","Humidity %","Pressure (mmHg)"];
 //     let headerRow = document.createElement("tr");
 //     headers.forEach(header => {
 //         let th = document.createElement("th");
@@ -99,7 +99,7 @@
 
 //     // add headers
 //     let headers = ["Time", "Conditions", "Temperature",
-//                    "Precipitation %","Wind Speed","Humidity","Pressure"];
+//                    "Precipitation %","Wind Speed (mph)","Humidity %","Pressure (mmHg)"];
 //     let headerRow = document.createElement("tr");
 //     headers.forEach(header => {
 //         let th = document.createElement("th");
