@@ -23,6 +23,9 @@ p {
 table th {
     text-align: center !important;
 }
+tr:nth-child(odd) {
+            background-color: lightgrey;
+}
 .table {
     margin-left: auto;
     margin-right: auto;
