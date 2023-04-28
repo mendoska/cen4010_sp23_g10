@@ -24,7 +24,10 @@ table th {
     text-align: center !important;
 }
 tr:nth-child(odd) {
-            background-color: lightgrey;
+            background-color: dimgrey;
+}
+.color-toggle-on tr:nth-child(odd) {
+  background-color: lightgrey;
 }
 .table {
     margin-left: auto;

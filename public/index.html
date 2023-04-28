@@ -1,206 +1,308 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html data-bs-theme="dark">
     <head>
+	    <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ0SQRQ739"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+ 		function gtag(){dataLayer.push(arguments);}
+ 		gtag('js', new Date());
+
+ 		gtag('config', 'G-WQ0SQRQ739');
+	</script>
         <title>Weather App</title>
-        <!-- custom css js files -->
-        <link rel="stylesheet" href="./styles/weatherapp.css">
-        <!-- <script src = "./scripts/weatherAPI.js"></script> -->
-
-        
+        <link rel="stylesheet" href="weatherapp.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<style>
+            tr:nth-child(odd) {
+                background-color: dimgrey;
+            }
+            .color-toggle-on tr:nth-child(odd) {
+                background-color: lightgrey;
+            }
+        </style>
     </head>
     <body>
-        <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
+        <nav class="navbar navbar-expand-md navbar-light ">
+            <div class="container">
+            <a class="navbar-brand">Group 10's Website</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">Group 10's Website</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-center">
-                    <li><a href="/">Home Page</a></li>
-                    <li><a href="/sign-up.html">Registration</a></li>
-                </ul>
-            </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sign-up.html">Registration</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class = "container-fluid bg-3 text-center">
-            <h1>Welcome!!!!</h1>
-            <h2 id="weather-loc"></h2>
+            <h1>Welcome!</h1>
+            <br>
+            <button class="btn btn-dark shadow" id="btnSwitch">Toggle Theme</button>
+            <br>
+            <br>
+            <h3 id = "location"></h3>
+            <br>
             <h3>Hourly</h3>
+            <br>
             <div id="weather-tableH"></div>
-            
+            <br>
             <h3>Daily</h3>
+            <br>
             <div id="weather-tableD"></div>
         </div>
-    <script>
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=Boca%20Raton%2C%20Florida%2C%20USA&contentType=csv&unitGroup=us&shortColumnNames=0",
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "d6bbfe9275msh819ebe32eaba934p110aa3jsn9566034352ca",
-		"X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com"
-	}
-};
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var tableH = document.getElementById("weather-tableH");
+                var tableD = document.getElementById("weather-tableD");
+                document.getElementById('btnSwitch').addEventListener('click',()=>{
+                    if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+                        document.documentElement.setAttribute('data-bs-theme','light');
+                    }
+                    else {
+                        document.documentElement.setAttribute('data-bs-theme','dark');
+                    }
+                    tableH.classList.toggle("color-toggle-on");
+                    tableD.classList.toggle("color-toggle-on");
+                    
+                })
+            })
+        </script>
+        <script>
+		let latitude;
+let longitude;
+//uses HTML5 geolocation API to get users coordinates and feeds them to other APIs
+function getLocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    String(latitude);
+    String(longitude);
+    weatherRetrieve(latitude, longitude)
+    
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      console.log("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      console.log("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+      break;
+    default:
+      console.log(`An unknown error occurred: ${error}`);
+  }
+}
+
+getLocation();
+
+function weatherRetrieve(lat, long){
+    //Daily weather API request
+    const settings = {
+	   "async": true,
+	   "crossDomain": true,
+	   "url": "https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location="+lat+"%2C"+long+"&contentType=csv&unitGroup=us&shortColumnNames=0",
+	   "method": "GET",
+	   "headers": {
+           "X-RapidAPI-Key": "d6bbfe9275msh819ebe32eaba934p110aa3jsn9566034352ca",
+           "X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com"
+	   }
+    };
 
 
-$.ajax(settings).done(function (response) {
-    // select the div element
-    let divElement = document.getElementById("weather-tableD");
+    $.ajax(settings).done(function (response) {
+        // select the div element
+        let divElement = document.getElementById("weather-tableD");
 
-    // create the table element and add headers and data
-    let table = document.createElement("table");
-    table.setAttribute("class", "table table-striped");
+        // create the table element and add headers and data
+        let table = document.createElement("table");
+            table.setAttribute("class", "table table-striped");
 
-    // add headers
-    let headers = ["Date", "Conditions", "Temperature (F)", "Max (F)", "Min (F)",
-                   "Precipitation %","Wind Speed (mph)","Humidity %","Pressure (mmHg)"];
-    let headerRow = document.createElement("tr");
-    headers.forEach(header => {
-        let th = document.createElement("th");
-        th.textContent = header;
-        headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
-
-    // add data
-    let rows = response.split("\n");
-    let data = rows.slice(1).map(row => row.split(","));
-    data.forEach(rowData => {
-        let row = document.createElement("tr");
-        let cell1 = document.createElement("td");
-        let cell2 = document.createElement("td");
-        rowData.forEach((cellData, index) => {
-            if (index === 3) {
-                cell1.textContent = cellData.replace(/"/g, "");
-                row.appendChild(cell1);
-            } else if (index === 27){
-                cell2.textContent = cellData.replace(/"/g, "");
-                row.appendChild(cell2);
-            }
+        // add headers
+        let headers = ["Date", "Conditions", "Temperature (F)", "Max (F)", "Min (F)",
+                       "Precipitation %","Wind Speed (mph)","Humidity %","Pressure (mmHg)"];
+        let headerRow = document.createElement("tr");
+        headers.forEach(header => {
+            let th = document.createElement("th");
+            th.textContent = header;
+            headerRow.appendChild(th);
         });
+        table.appendChild(headerRow);
+
+        // add data
+        let rows = response.split("\n");
+        let data = rows.slice(1).map(row => row.split(","));
+        data.forEach(rowData => {
+            let row = document.createElement("tr");
+            let cell1 = document.createElement("td");
+            let cell2 = document.createElement("td");
+            //removes quotation marks
+            rowData.forEach((cellData, index) => {
+                if (index === 2) {
+                    cell1.textContent = cellData.replace(/"/g, "");
+                    row.appendChild(cell1);
+                } else if (index === 24){
+                    cell2.textContent = cellData.replace(/"/g, "");
+                    row.appendChild(cell2);
+                }
+            });
         
-        
-        let temperatureCell = document.createElement("td");
-        temperatureCell.textContent = rowData[15];
-        row.appendChild(temperatureCell);
-        let maxCell = document.createElement("td");
-        maxCell.textContent = rowData[14];
-        row.appendChild(maxCell);
-        let minCell = document.createElement("td");
-        minCell.textContent = rowData[13];
-        row.appendChild(minCell);
-        let preCell = document.createElement("td");
-        preCell.textContent = rowData[19];
-        row.appendChild(preCell);
-        let windCell = document.createElement("td");
-        windCell.textContent = rowData[16];
-        row.appendChild(windCell);
-        table.appendChild(row);
-        let humidCell = document.createElement("td");
-        humidCell.textContent = rowData[24];
-        row.appendChild(humidCell);
-        let pressCell = document.createElement("td");
-        pressCell.textContent = rowData[21];
-        row.appendChild(pressCell);
-    });
-
-// append the table to the div
-divElement.appendChild(table);
-
-});
-
-const settings2 = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=1&location=Boca%20Raton%2C%20Florida%2C%20USA&contentType=csv&unitGroup=us&shortColumnNames=0",
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "d6bbfe9275msh819ebe32eaba934p110aa3jsn9566034352ca",
-		"X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com"
-	}
-};
-
-$.ajax(settings2).done(function (response) {
-	console.log(response);
-    
-    // select the div element
-    let divElement = document.getElementById("weather-tableH");
-
-    // create the table element and add headers and data
-    let table = document.createElement("table");
-    table.setAttribute("class", "table table-striped");
-
-    // add headers
-    let headers = ["Time", "Conditions", "Temperature (F)",
-                   "Precipitation %","Wind Speed (mph)","Humidity %","Pressure (mmHg)"];
-    let headerRow = document.createElement("tr");
-    headers.forEach(header => {
-        let th = document.createElement("th");
-        th.textContent = header;
-        headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
-
-    // add data
-    let rows = response.split("\n");
-    let data = rows.slice(1, 25).map(row => row.split(","));
-    data.forEach(rowData => {
-        let row = document.createElement("tr");
-        let cell1 = document.createElement("td");
-        let cell2 = document.createElement("td");
-        rowData.forEach((cellData, index) => {
-            if (index === 3) {
-                cell1.textContent = cellData.replace(/"/g, "");
-                row.appendChild(cell1);
-            } else if (index === 25){
-                cell2.textContent = cellData.replace(/"/g, "");
-                row.appendChild(cell2);
-            }
+           
+            //add each section of information from API and puts it into a table one row at a time
+            let temperatureCell = document.createElement("td");
+            temperatureCell.textContent = rowData[12];
+            row.appendChild(temperatureCell);
+            let maxCell = document.createElement("td");
+            maxCell.textContent = rowData[11];
+            row.appendChild(maxCell);
+            let minCell = document.createElement("td");
+            minCell.textContent = rowData[10];
+            row.appendChild(minCell);
+            let preCell = document.createElement("td");
+            preCell.textContent = rowData[16];
+            row.appendChild(preCell);
+            let windCell = document.createElement("td");
+            windCell.textContent = rowData[13];
+            row.appendChild(windCell);
+            table.appendChild(row);
+            let humidCell = document.createElement("td");
+            humidCell.textContent = rowData[21];
+            row.appendChild(humidCell);
+            let pressCell = document.createElement("td");
+            pressCell.textContent = rowData[18];
+            row.appendChild(pressCell);
         });
-        
-        
-        let temperatureCell = document.createElement("td");
-        temperatureCell.textContent = rowData[13];
-        row.appendChild(temperatureCell);
-        let preCell = document.createElement("td");
-        preCell.textContent = rowData[17];
-        row.appendChild(preCell);
-        let windCell = document.createElement("td");
-        windCell.textContent = rowData[14];
-        row.appendChild(windCell);
-        table.appendChild(row);
-        let humidCell = document.createElement("td");
-        humidCell.textContent = rowData[22];
-        row.appendChild(humidCell);
-        let pressCell = document.createElement("td");
-        pressCell.textContent = rowData[19];
-        row.appendChild(pressCell);
+
+        // append the table to the div
+        divElement.appendChild(table);
+
     });
+    //Hourly weather API request
+    const settings2 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=1&location="+lat+"%2C"+long+"&contentType=csv&unitGroup=us&shortColumnNames=0",
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": "d6bbfe9275msh819ebe32eaba934p110aa3jsn9566034352ca",
+            "X-RapidAPI-Host": "visual-crossing-weather.p.rapidapi.com"
+	   }
+    };
 
-// append the table to the div
-divElement.appendChild(table);
+    $.ajax(settings2).done(function (response) {
+        // select the div element
+        let divElement = document.getElementById("weather-tableH");
+        
+        // create the table element and add headers and data
+        let table = document.createElement("table");
+        table.setAttribute("class", "table table-striped");
+        
+        // add headers
+        let headers = ["Time", "Conditions", "Temperature (F)",
+                       "Precipitation %","Wind Speed (mph)","Humidity %","Pressure (mmHg)"];
+        let headerRow = document.createElement("tr");
+        headers.forEach(header => {
+            let th = document.createElement("th");
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        table.appendChild(headerRow);
+
+        // add data
+        let rows = response.split("\n");
+        //limtis rows to 24 to cover an enitre day
+        let data = rows.slice(1, 25).map(row => row.split(","));
+        data.forEach(rowData => {
+            let row = document.createElement("tr");
+            let cell1 = document.createElement("td");
+            let cell2 = document.createElement("td");
+            //removes quotation marks
+            rowData.forEach((cellData, index) => {
+                if (index === 2) {
+                    cell1.textContent = cellData.replace(/"/g, "");
+                    row.appendChild(cell1);
+                } else if (index === 22){
+                    cell2.textContent = cellData.replace(/"/g, "");
+                    row.appendChild(cell2);
+                }
+            });
+        
+            //add each section of information from API and puts it into a table one row at a time
+            let temperatureCell = document.createElement("td");
+            temperatureCell.textContent = rowData[10];
+            row.appendChild(temperatureCell);
+            let preCell = document.createElement("td");
+            preCell.textContent = rowData[14];
+            row.appendChild(preCell);
+            let windCell = document.createElement("td");
+            windCell.textContent = rowData[11];
+            row.appendChild(windCell);
+            table.appendChild(row); 
+            let humidCell = document.createElement("td");
+            humidCell.textContent = rowData[19];
+            row.appendChild(humidCell);
+            let pressCell = document.createElement("td");
+            pressCell.textContent = rowData[16];
+            row.appendChild(pressCell);
+        });
+
+        // append the table to the div
+        divElement.appendChild(table);
     
-});
+    });
+    //Reverse geocoding API that gets more detailed user infomration
+    //used to get city/town information
+     const settings3 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://forward-reverse-geocoding.p.rapidapi.com/v1/reverse?lat="+lat+"&lon="+long+"&accept-language=en&polygon_threshold=0.0",
+        "method": "GET",
+        "headers": {
+            "X-RapidAPI-Key": "d6bbfe9275msh819ebe32eaba934p110aa3jsn9566034352ca",
+            "X-RapidAPI-Host": "forward-reverse-geocoding.p.rapidapi.com"
+        }
+    };
 
 
-
-
-
-    </script>
+    $.ajax(settings3).done(function (response) {
+        
+        //prioritizes town data over city data, will not add both
+        const town = response.address.town;
+        if(town != null){
+            $("#location").text(town);
+        } else{
+            const city = response.address.city;
+            $("#location").text(city);
+        }
     
-    
+    });
+}
+    	</script>
     </body>
-</html>
+</html
